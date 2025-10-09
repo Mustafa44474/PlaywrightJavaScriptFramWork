@@ -25,7 +25,17 @@ console.log('We are sorry wer face lack of this item: ' +productConfirmation)
 page.pause(5000)
 
 
+test.only("Testing My Itenm to the card", async({page})=>{
+    await page.goto('https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin');
+  await page.getByLabel('Email or phone').fill('gmustafasiddiqi1@gmail.com');
+  await page.getByLabel('Password', { exact: true }).fill('Abdullah@321');
+  await page.getByRole('button', { name: 'Sign in', exact: true }).click();
+  await page.getByRole('button', { name: 'Mustafa Siddiq Me' }).click();
+  await page.getByRole('link', { name: 'View Profile' }).click();
+  await page.goto('https://www.linkedin.com/dashboard/');
 
+  await page.close();
+})
 
 })
 test.only("Testing My Itenm to the card", async({page})=>{
